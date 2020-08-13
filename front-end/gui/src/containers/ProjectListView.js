@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import Projects from '../components/Project';
-
+import CustomForm from '../components/Form';
 
 class ProjectList extends React.Component {
 
@@ -23,7 +23,15 @@ class ProjectList extends React.Component {
 
     render() {
         return (
-            <Projects data={this.state.projects} />
+            <div>
+                <Projects data={this.state.projects} />
+                <br />
+                <h2>Create an Article</h2>
+                <CustomForm
+                    requestType="post"
+                    projectID={null}
+                    btnText="Create"/>
+            </div>
         );
     }
 }

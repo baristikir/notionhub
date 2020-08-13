@@ -21,6 +21,7 @@ import {
   Badge,
   Pagination,
 } from '@windmill/react-ui'
+import { Link } from 'react-router-dom';
 import { Button } from '@windmill/react-ui'
 
 import {
@@ -105,12 +106,12 @@ function Dashboard() {
           </TableHeader>
           <TableBody>
             {data.map((user, i) => (
-
               <TableRow key={i}>
 
-                <Button className="w-full" layout="link">  
 
                 <TableCell>
+                <Link to ="/app/real-dashboard">
+
                   <div className="flex items-center text-sm">
                     <Avatar className="hidden mr-3 md:block" src={user.avatar} alt="User image" />
                     <div>
@@ -118,6 +119,8 @@ function Dashboard() {
                       <p className="text-xs text-gray-600 dark:text-gray-400">{user.job}</p>
                     </div>
                   </div>
+                  </Link>
+
                 </TableCell>
                 <TableCell>
                   <span className="text-sm">$ {user.amount}</span>
@@ -129,11 +132,9 @@ function Dashboard() {
                   <span className="text-sm">{new Date(user.date).toLocaleDateString()}</span>
                 </TableCell>
 
-                </Button>
 
-              </TableRow>
-              
-            ))}
+
+              </TableRow>            ))}
           </TableBody>
         </Table>
         <TableFooter>
@@ -159,7 +160,7 @@ function Dashboard() {
         </ChartCard>
       </div>
     </>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;
