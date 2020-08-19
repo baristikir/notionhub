@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import ImageLight from '../assets/img/login-office.jpeg'
 import ImageDark from '../assets/img/login-office-dark.jpeg'
-import { GithubIcon, TwitterIcon } from '../icons'
+import { GithubIcon, NotionIcon } from '../icons'
 import { Label, Input, Button } from '@windmill/react-ui'
 
 function Login() {
@@ -30,7 +30,7 @@ function Login() {
               <h1 className="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">Login</h1>
               <Label>
                 <span>Email</span>
-                <Input className="mt-1" type="email" placeholder="john@doe.com" />
+                <Input className="mt-1" type="email" placeholder="notionhub@example.com" />
               </Label>
 
               <Label className="mt-4">
@@ -49,8 +49,8 @@ function Login() {
                 Github
               </Button>
               <Button className="mt-4" block layout="outline">
-                <TwitterIcon className="w-4 h-4 mr-2" aria-hidden="true" />
-                Twitter
+                <NotionIcon className="w-4 h-4 mr-2" aria-hidden="true" />
+                Notion
               </Button>
 
               <p className="mt-4">

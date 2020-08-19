@@ -36,19 +36,17 @@ function ProjectsList() {
       }
     // on page change, load new sliced data
     // here you would make another server request for new data
-    // useEffect(() => {
-    //     setData(response.slice((page - 1) * resultsPerPage, page * resultsPerPage))
-    // }, [page])
-
     useEffect(() => {
          axios.get('http://127.0.0.1:8000/api/')
             .then(res => {
             setData(res.data)
-            //console.log(res.data)
+            // for test porpuse
+            // console.log(res.data)
         })
     }, [page])
 
-    console.log(data)
+    // for test porpuse
+    // console.log(data)
 
     return (
         <>
@@ -56,10 +54,10 @@ function ProjectsList() {
         {/* <!-- Title --> */}
         <PageTitle>Dashboard</PageTitle>
 
+
         <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
 
-          {/* <!-- Cards --> */}
-
+        {/* <!-- Cards --> */}
         {
             <InfoCard title="Total Projects" value={data.length}>
               <RoundIcon
@@ -99,14 +97,17 @@ function ProjectsList() {
         </InfoCard>
       </div>
 
-          {/* <!-- Cards --> */}
+      {/* <!-- Table --> */}
       <TableContainer className="mb-8">
         <Table>
+
+          {/* <!-- Table Header Columns --> */}
           <TableHeader>
 
             <tr>
               <TableCell>Project</TableCell>
               <TableCell>Contributors</TableCell>
+              <TableCell>ToDo's</TableCell>
               <TableCell>Status</TableCell>
               <TableCell>Build Status</TableCell>
               <TableCell>Start Date</TableCell>
@@ -114,11 +115,16 @@ function ProjectsList() {
 
           </TableHeader>
 
+          {/* <!-- Table Body Rows from Backend --> */}
           <TableBody>
             {
                 data.map((user, i) => (
                     <TableRow key={i}>
+
+                        {/* <!-- Cell for Project Name & Title --> */}
                         <TableCell>
+
+                        {/* <!-- Link to Project Detail View --> */}
                         <Link to ="/app/real-dashboard">
 
                               <div className="flex items-center text-sm">
@@ -131,24 +137,33 @@ function ProjectsList() {
                           </Link>
                         </TableCell>
 
+                        {/* <!-- Cell for Project Contributors --> */}
                         <TableCell>
                               <span className="text-sm">40</span>
                         </TableCell>
 
+
+                        {/* <!-- Cell for Project ToDo's --> */}
                         <TableCell>
-                              <Badge type="success">success</Badge>
+                              <Badge type="neutral">14 ToDo's</Badge>
                         </TableCell>
 
+                        {/* <!-- Cell for Project Status --> */}
                         <TableCell>
-                              <Badge type="danger">danger</Badge>
+                              <Badge type="success">active</Badge>
                         </TableCell>
 
+                        {/* <!-- Cell for Project Build Status --> */}
+                        <TableCell>
+                              <Badge type="danger">failed</Badge>
+                        </TableCell>
+
+                        {/* <!-- Cell for Project Start Date --> */}
                         <TableCell>
                               <span className="text-sm">{new Date().toLocaleDateString()}</span>
                         </TableCell>
 
                     </TableRow>
-
                 ))
             }
           </TableBody>

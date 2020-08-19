@@ -28,11 +28,11 @@ const ActualDashboard = lazy(() => import('../views/Dashboard'))
 const routes = [
   {
     path: '/dashboard', // the url
-    component: Dashboard, // view rendered
+    component: ActualDashboard, // view rendered
   },
   {
-    path: '/real-dashboard',
-    component: ActualDashboard,
+    path: '/full-dashboard',
+    component: Dashboard,
   },
   {
     path: '/forms',
