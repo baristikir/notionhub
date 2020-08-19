@@ -125,7 +125,7 @@ function ProjectsList() {
                         <TableCell>
 
                         {/* <!-- Link to Project Detail View --> */}
-                        <Link to ="/app/real-dashboard">
+                        <Link to ="/app/real-dashboard ">
 
                               <div className="flex items-center text-sm">
                                 <div>
